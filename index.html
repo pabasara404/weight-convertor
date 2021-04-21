@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Weight Converter</title>
+    <style>
+        body{
+            margin-top:30px;
+            background: #333;
+            color: #fff;
+
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+         <div class="row">
+             <div class="col-md-6 offset-md-3">
+                <div class="d-grid gap-2 d-md-flex justify-content-md-center ">
+                    <h1 class="display-4 text-center mb-3">Weight Converter</h1>
+                    <button class="btn btn-light h-25 mt-4 ml-3" onclick="f1()" id="btn" type="button">Clear</button>
+                  </div>
+                
+                 
+                 <div id="output">
+                    <div class="card text-white bg-warning mb-2">
+                        <div class="card-body">
+                            <form>
+                                <div class="form-group">
+                                    <label class="form-label "><h4>Pounds :</h4></label>
+                                    <input type="number" class="form-control form-control-lg " placeholder="Enter Pounds..." id="pounds">
+                                </div>
+                            </form>
+                        </div>
+                        </div>
+                     </div>
+ 
+                    
+                    <div class="card text-white bg-primary mb-2">
+                        <div class="card-body">
+                            <form>
+                                <div class="form-group">
+                                    <label class="form-label "><h4>Grams :</h4></label>
+                                    <input type="number" class="form-control form-control-lg " placeholder="Enter Grams..." id="grams">
+                                </div>
+                            </form>
+                        </div>
+                     </div>
+
+                     <div class="card text-white bg-success mb-2">
+                        <div class="card-body">
+                            <form>
+                                <div class="form-group">
+                                    <label class="form-label "><h4>Kilograms :</h4></label>
+                                    <input type="number" class="form-control form-control-lg " placeholder="Enter Kilograms..." id="kg">
+                                </div>
+                            </form>
+                        </div>
+                     </div>
+
+                     <div class="card text-white bg-danger c">
+                        <div class="card-body">
+                            <form>
+                                <div class="form-group">
+                                    <label class="form-label "><h4>Ounces :</h4></label>
+                                    <input type="number" class="form-control form-control-lg " placeholder="Enter Ounces..." id="oz">
+                                </div>
+                            </form>
+                        </div>
+                     </div>
+                    
+                 </div>
+             </div>
+         </div>
+    </div>
+    <script>
+        document.getElementById('btn').style.visibility='hidden';
+        document.getElementById('pounds').addEventListener('input',function(e){
+            document.getElementById('btn').style.visibility='visible';
+            let lbs=e.target.value;       
+            document.getElementById('grams').value=lbs/0.0022046;
+            document.getElementById('kg').value=lbs/2.2046;
+            document.getElementById('oz').value=lbs*16;
+                })
+
+        document.getElementById('grams').addEventListener('input',function(e){
+            document.getElementById('btn').style.visibility='visible';
+            let lbs=e.target.value;       
+            document.getElementById('pounds').value=lbs*0.0022046;//
+            document.getElementById('kg').value=lbs/1000//
+            document.getElementById('oz').value=lbs/28.35//
+                })
+                
+        document.getElementById('kg').addEventListener('input',function(e){
+            document.getElementById('btn').style.visibility='visible';
+            let lbs=e.target.value;       
+            document.getElementById('grams').value=lbs*1000;//
+            document.getElementById('pounds').value=lbs*2.2046;//
+            document.getElementById('oz').value=lbs*35.274;//
+                })
+
+        document.getElementById('oz').addEventListener('input',function(e){
+            document.getElementById('btn').style.visibility='visible';
+            let lbs=e.target.value;       
+            document.getElementById('grams').value=lbs*28.3495;
+            document.getElementById('kg').value=lbs/35.274;
+            document.getElementById('pounds').value=lbs/16;//
+                })
+                function f1(){
+                    document. getElementById('pounds'). value ="";
+                    document. getElementById('oz'). value ="";
+                    document. getElementById('kg'). value ="";
+                    document. getElementById('grams'). value ="";
+                }
+
+                
+    </script>
+</body>
+</html>
